@@ -4,12 +4,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { PortfolioService } from '../../core/services/portfolio.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { RestrictInputDirective } from '../../core/directives/restrict-input.directive';
 
 @Component({
   selector: 'app-investment-form',
   templateUrl: './investment-form.component.html',
   styleUrls: ['./investment-form.component.scss'],
-  imports:[ReactiveFormsModule,CommonModule],
+  imports:[ReactiveFormsModule,CommonModule,RestrictInputDirective],
   standalone:true
 })
 export class InvestmentFormComponent implements OnInit {
