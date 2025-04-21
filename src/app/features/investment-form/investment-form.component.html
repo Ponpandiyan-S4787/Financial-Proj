@@ -1,0 +1,73 @@
+
+<div class="container">
+    <h1 class="form-title">Add Investment</h1>
+    <form [formGroup]="investmentForm" class="form">
+      <div class="form-field">
+        @if(isVerified){   
+        <label for="assetType">Asset Type</label>
+        <select formControlName="assetType" id="assetType">
+          <option value="">Select</option>
+          <option value="Stock">Stock</option>
+          <option value="Bond">Bond</option>
+          <option value="Fund">Fund</option>
+        </select>
+        <div *ngIf="investmentForm.get('assetType')?.invalid && investmentForm.get('assetType')?.touched" class="error">
+          Asset type is required.
+        </div>
+      }
+      @if(isSubmit){
+        <label for="assetType">Asset Type</label>
+        <p>{{verifiedData.assetType}}</p>
+      }
+      </div>
+      <div class="form-field">
+        @if(isVerified){    
+        <label for="quantity">Quantity</label>  
+        <input type="text" formControlName="quantity" id="quantity" appRestrictInput>
+        <div *ngIf="investmentForm.get('quantity')?.invalid && investmentForm.get('quantity')?.touched" class="error">
+          Quantity must be a positive number.
+        </div>
+      }
+      @if(isSubmit){
+        <label for="quantity">Quantity</label>
+        <p>{{verifiedData.quantity}}</p>
+      }
+      </div>
+      <div class="form-field">
+        @if(isVerified){
+        <label for="purchasePrice">Purchase Price</label>
+        <input type="text" formControlName="purchasePrice" id="purchasePrice" appRestrictInput>
+        <div *ngIf="investmentForm.get('purchasePrice')?.invalid && investmentForm.get('purchasePrice')?.touched" class="error">
+          Purchase price must be non-negative.
+        </div>
+      }
+      @if(isSubmit){
+          <label for="purchasePrice">Purchase Price</label>
+          <p>{{verifiedData.purchasePrice}}</p>        
+        }
+      </div>
+      <div class="form-field">
+        @if(isVerified){
+          <label for="date">Date</label>
+          <input type="date" formControlName="date" id="date">
+          <div *ngIf="investmentForm.get('date')?.invalid && investmentForm.get('date')?.touched" class="error">
+            Date is required.
+          </div>
+        }
+        @if(isSubmit){
+          <label for="date">Date</label>
+          <!-- <input type="date" formControlName="date" id="date"> -->
+           <p>{{verifiedData.date}}</p>
+          }
+       
+      </div>
+      @if(isVerified){
+      <button (click)="onVerify()" [disabled]="investmentForm.invalid">Verify</button>
+      }
+      @if(isSubmit){
+        <button type="submit" (click)="onSubmit()">Submit</button>
+        <button type="cancel" class="cancel" (click)="onCancel()">Cancel</button>
+      }
+    </form>
+  </div>
+  

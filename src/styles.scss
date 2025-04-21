@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+  }
+  
+  nav {
+    background-color: #1f2937;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav a {
+    color: white;
+    margin-right: 1rem;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    color: #d1d5db;
+  }
+  
+  @media (max-width: 640px) {
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    nav a {
+      margin: 0.5rem 0;
+    }
+  }
+  

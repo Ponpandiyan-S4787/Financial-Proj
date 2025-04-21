@@ -1,0 +1,53 @@
+
+<div class="container">
+    <h1 class="dashboard-title">Portfolio Dashboard</h1>
+    <div class="grid">
+      <div class="card">
+        <h2 class="card-title">Total Value</h2>
+        <p class="card-value">{{ portfolioData?.totalValue | currencyFormat }}</p>
+      </div>
+      <div class="card">
+        <h2 class="card-title">Performance</h2>
+        <p class="card-value">{{ portfolioData?.performance | currencyFormat }}</p>
+      </div>
+    </div>
+      <div class="card">
+        <h2 class="card-title">Details</h2>
+        <table class="investment-table">
+          <thead>
+            <th>
+             Type
+            </th>
+            <th>
+              Quantity
+            </th>
+            <th>
+              Purchase Price
+            </th>
+            <th>
+              Date
+            </th>
+          </thead>
+          <tbody>
+            @for (inverst of inverstmentData; track $index) {
+            <tr>
+              <td>{{inverst.assetType}}</td>
+              <td>{{inverst.quantity}}</td>
+              <td>{{inverst.purchasePrice}}</td>
+              <td>{{inverst.date}}</td>
+            </tr>}
+          </tbody>
+        </table>    </div>
+   
+    <div class="chart"> 
+      <h2 class="card-title">Graph info</h2>
+      <canvas #portfolioChart></canvas> 
+    </div>
+    <!-- <div class="card">
+      <h2 class="card-title">Chart info</h2>
+    <div class="chart">
+      <canvas baseChart [data]="pieChartData" [labels]="" [type]="pieChartType" [options]="pieChartOptions"></canvas>
+    </div>
+    </div> -->
+  </div>
+  

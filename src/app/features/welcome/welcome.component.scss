@@ -1,0 +1,11 @@
+.welcome{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    @media(max-width:820px){
+        top: 30%;
+        left: 30%;
+    }
+}
