@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   portfolioData: any;
   inverstmentData:any
   investments$: Observable<Investment[]>;
-  totalPortfolioValue: number = 0;
+  // totalPortfolioValue: number = 0;
   private investmentSubscription: Subscription | undefined;
   private chart: Chart | undefined;
   @ViewChild('portfolioChart') private chartRef!: ElementRef<HTMLCanvasElement>;
@@ -40,7 +40,7 @@ export class DashboardComponent implements OnInit {
       this.inverstmentData = data;
     });
     this.investmentSubscription = this.investments$.subscribe((investments: any[]) => {
-      this.totalPortfolioValue = investments.reduce((sum, inv) => sum + (inv.currentValue ?? inv.purchasePrice * inv.quantity), 0);
+      // this.totalPortfolioValue = investments.reduce((sum, inv) => sum + (inv.currentValue ?? inv.purchasePrice * inv.quantity), 0);
       // Update chart data if the chart instance exists
       if (this.chart) {
         this.updateChartData(investments);
